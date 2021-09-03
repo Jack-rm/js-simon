@@ -17,18 +17,20 @@
 
 
 let listaNumeri = [];
+let numeroMax = 100;
+let numeroMin = 1;
 
 // genero 5 numeri randomici che non si ripetono tra 1 e 100
 
 while ( listaNumeri.length < 5){
-    let numeroRandomico = getRandomNumber(1,100);
+    let numeroRandomico = getRandomNumber(numeroMin, numeroMax);
 
     if( !listaNumeri.includes(numeroRandomico)){
         listaNumeri.push(numeroRandomico);
     }
 }
 
-alert("I numeri di oggi sono: " + listaNumeri + "!");
+alert("I numeri di oggi sono: " + listaNumeri);
 
 console.log(listaNumeri);
 
@@ -37,26 +39,24 @@ console.log(listaNumeri);
 let tentativoUtente;
 let listaTentativi = [];
 
+/*
 
 for ( let i = 0; i < 5; i++){
     let tentativoUtente = parseInt(prompt("Inserisci uno dei numeri di oggi"));
     listaTentativi.push(tentativoUtente);
 }
-
 console.log(listaTentativi);
 
 let match = listaNumeri.filter(i => listaTentativi.includes(i));
 
 console.log("I numeri inseriti che corrispondono sono: " + match);
 console.log("Hai indovinato " + match.length + " numeri su 5!");
+*/
+
+setTimeout(myFunction,3000);
 
 
-// setTimeout(myFunction,3000);
 
-function myfunction (){
-
-
-}
 
 
 
@@ -64,4 +64,19 @@ function myfunction (){
 // Generatore numero randomico
 function getRandomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+function myFunction (){
+    
+    for ( let i = 0; i < 5; i++){
+        let tentativoUtente = parseInt(prompt("Inserisci un dei numeri di oggi"));
+        listaTentativi.push(tentativoUtente);
+    }
+    console.log(listaTentativi);
+
+    let match = listaNumeri.filter(i => listaTentativi.includes(i));
+
+    console.log("I numeri inseriti che corrispondono sono: " + match);
+    console.log("Hai indovinato " + match.length + " numeri su 5!");
 }
